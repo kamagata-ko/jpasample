@@ -1,6 +1,30 @@
-dockerを起動させる
+この「memo.txt」が入ってるディレクトリでターミナルを開く
+
+
+Dockerを起動させる
     docker-compose up -d
 
-docker container exec -it postgres15 bash
+Docker のコンテナに入る。
+    docker container exec -it コンテナ名 bash
+    例）docker container exec -it postgres15 bash
 
-psql -h localhost -p 5432 -U root -d jpasampledb
+    ※コンテナ名はこれで調べる。service 欄の文字列をコピーしておく
+    docker-compose ps
+
+Postgers が使える可動化を確認する
+    psql --version
+
+
+psql -h ホスト名 -p ポート番号 -U ロール名 -d データベース名
+    psql -h localhost -p 5432 -U testUser -d testdb
+    例）psql -h localhost -p 5432 -U root -d jpasampledb
+
+    ※「docker-compose.yml」ファイルにユーザー名やらDB名が載ってる
+
+
+------- その他 --------
+テーブル一覧を取得する方法
+    \dt
+
+psql を終了させる場合は以下を実行
+    \q
