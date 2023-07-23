@@ -18,12 +18,14 @@ public class ItemController {
 
     @GetMapping(value = "/fetchname")
     public void fetchNameByPK() {
-        List<Item> items = repository.findAllByOrderByIdAsc();
+        List<Item> items = repository.findAllByOrderByIdAsc(); // idの昇順で取得する。
 
         for(int i = 0; i<items.size(); i++) {
             System.out.print(items.get(i).getId());
             System.out.print(" : ");
-            System.out.println(items.get(i).getName());
+            System.out.print(items.get(i).getName());
+            System.out.print(" : ");
+            System.out.println(items.get(i).getStartDate());
         }
     }
 }

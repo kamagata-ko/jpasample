@@ -1,19 +1,23 @@
 package com.jpasample.entity;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.Data;
 
 @Entity
 @Table(name="item")
 public class Item {
     @Id
-    // @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "")
     private Integer id;
+
+    @Column
+    private String name;
+
+    @Column
+    private LocalDateTime startDate;
 
     public Integer getId() {
         return id;
@@ -31,9 +35,11 @@ public class Item {
         this.name = name;
     }
 
-    @Column
-    private String name;
+    public LocalDateTime getStartDate() {
+        return startDate;
+    }
 
-    // @Column
-    // private String startDate;
+    public void setStartDate(LocalDateTime startDate) {
+        this.startDate = startDate;
+    }
 }
