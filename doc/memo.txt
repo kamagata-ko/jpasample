@@ -1,0 +1,6 @@
+dockerを起動させる
+    docker-compose up -d
+
+docker container exec -it postgres15 bash
+
+psql -h localhost -p 5432 -U root -d jpasampledb
